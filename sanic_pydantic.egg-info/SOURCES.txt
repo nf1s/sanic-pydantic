@@ -1,0 +1,9 @@
+README.md
+setup.py
+sanic_pydantic/__init__.py
+sanic_pydantic.egg-info/PKG-INFO
+sanic_pydantic.egg-info/SOURCES.txt
+sanic_pydantic.egg-info/dependency_links.txt
+sanic_pydantic.egg-info/not-zip-safe
+sanic_pydantic.egg-info/requires.txt
+sanic_pydantic.egg-info/top_level.txt
