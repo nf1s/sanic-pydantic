@@ -17,3 +17,6 @@ deploy-docs:
 
 serve-docs:
 	pipenv run mkdocs serve
+
+run-%:
+	pipenv run python example_$*.py
