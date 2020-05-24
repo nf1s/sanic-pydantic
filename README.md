@@ -2,9 +2,24 @@
 
 A library for parsing and validating http requests for sanic webframwork using pydantic library 
 
+## Requirements
+
+	python >= 3.7
+
+## How to install
+
+```bash
+pip install sanic-pydantic
+```
+
+## Dependencies
+
+	pydantic
+
 ## Example
 
 ```python
+
 from sanic_pydantic import async_webargs
 
 from sanic import Sanic
