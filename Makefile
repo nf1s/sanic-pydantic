@@ -15,7 +15,7 @@ install:
 deploy-docs:
 	pipenv run mkdocs gh-deploy
 
-serve-docs:
+run-docs:
 	pipenv run mkdocs serve
 
 run-%:
