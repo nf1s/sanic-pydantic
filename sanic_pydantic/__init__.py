@@ -13,27 +13,43 @@ __version__ = "0.1.0"
 BODY_METHODS = ["POST", "PUT", "PATCH"]
 
 
-def validate(request, obj):
+class Error(Exception):
+    def __init__(self, message):
+        self.message = message
+
+
+class InvalidOperation(Error):
+    pass
+
+
+def validate(request, query, body):
 
     payload = None
-    query = None
+    query_params = None
 
-    if request.method in BODY_METHODS:
-        payload = obj(**request.json).dict()
+    if body and request.method not in BODY_METHODS:
+        raise InvalidOperation(
+            f"Http method '{request.method}' does not contain a payload,"
+            "yet a Pyndatic model for body was suppied"
+        )
 
-    params = request.args
-    params = {k: v[0] for k, v in params.items()}
-    query = obj(**params).dict()
+    if body:
+        payload = body(**request.json).dict()
 
-    return dict(payload=payload, query=query)
+    if query:
+        params = request.args
+        params = {k: v[0] for k, v in params.items()}
+        query_params = query(**params).dict()
+
+    return dict(payload=payload, query=query_params)
 
 
-def async_webargs(obj):
+def async_webargs(query=None, body=None):
     def decorator(f):
         @wraps(f)
         async def decorated_function(request, *args, **kwargs):
             try:
-                result = validate(request, obj)
+                result = validate(request, query, body)
             except ValidationError as e:
                 return json(e.errors())
             kwargs.update(result)
@@ -45,12 +61,12 @@ def async_webargs(obj):
     return decorator
 
 
-def webargs(obj):
+def webargs(query=None, body=None):
     def decorator(f):
         @wraps(f)
         def decorated_function(request, *args, **kwargs):
             try:
-                result = validate(request, obj)
+                result = validate(request, query, body)
             except ValidationError as e:
                 return json(e.errors())
             kwargs.update(result)
