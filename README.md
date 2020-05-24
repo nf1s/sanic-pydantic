@@ -2,6 +2,8 @@
 
 A library for parsing and validating http requests for sanic webframwork using pydantic library 
 
+Full documentation [here](https://ahmednafies.github.io/sanic_pydantic/)
+
 ## Requirements
 
 	python >= 3.7
