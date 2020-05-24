@@ -1,0 +1,12 @@
+site_name: Sanic Pydantic
+nav:
+  - Getting Started: index.md
+  - Install: install.md
+  - Example: example.md
+
+theme:
+  name: "material"
+  palette:
+    primary: "violet"
+markdown_extensions:
+  - codehilite

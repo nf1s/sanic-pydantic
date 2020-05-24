@@ -5,13 +5,21 @@ verify_ssl = true
 
 [dev-packages]
 flake8 = "*"
-requests = "*"
 ipython = "*"
+pre-commit = "*"
+ipdb = "*"
+black = "*"
+pygments = "*"
+requests = "*"
 
 [packages]
 twine = "*"
 sanic = "*"
 pydantic = "*"
+mkdocs = "*"
+mkdocs-material = "*"
+bleach = ">=3.*"
+jeepney = ">=0.4.2"
 
 [requires]
 python_version = "3.7"
