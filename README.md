@@ -1,6 +1,6 @@
 # Sanic Pyndatic
 
-A library for parsing and validating http requests for sanic webframwork using pydantic library 
+A library for parsing and validating http requests for sanic web-framework using pydantic library 
 
 Full documentation [here](https://ahmednafies.github.io/sanic_pydantic/)
 
@@ -22,7 +22,7 @@ pip install sanic-pydantic
 
 ```python
 
-from sanic_pydantic import async_webargs
+from sanic_pydantic import webargs, async_webargs
 
 from sanic import Sanic
 from sanic.response import json

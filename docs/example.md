@@ -1,7 +1,7 @@
 # Full Example
 
 ```python
-from sanic_pydantic import async_webargs
+from sanic_pydantic import webargs, async_webargs
 
 from sanic import Sanic
 from sanic.response import json
