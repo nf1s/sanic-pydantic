@@ -12,6 +12,7 @@ black = "*"
 pygments = "*"
 requests = "*"
 pytest = "*"
+coverage = "*"
 
 [packages]
 twine = "*"
