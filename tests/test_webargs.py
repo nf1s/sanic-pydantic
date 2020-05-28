@@ -23,7 +23,9 @@ def test_sanic_webargs_payload():
 
 def test_async_sanic_webargs_query():
     params = dict(name="ahmed")
-    request, response = app.test_client.get("/async-get-request", params=params)
+    request, response = app.test_client.get(
+        "/async-get-request", params=params
+    )
     expected_response = dict(payload=None, query=params)
     assert response.status == 200
     assert response.json == expected_response

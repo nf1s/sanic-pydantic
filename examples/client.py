@@ -12,7 +12,9 @@ def get_request():
 def post_request():
     params = dict(name="my_name")
     payload = dict(age=29)
-    response = requests.post(f"{host}/post-request", params=params, json=payload)
+    response = requests.post(
+        f"{host}/post-request", params=params, json=payload
+    )
     return response.json()
 
 
@@ -25,7 +27,9 @@ def async_get_request():
 def async_post_request():
     params = dict(name="my_name")
     payload = dict(age=29)
-    response = requests.post(f"{host}/async-post-request", params=params, json=payload)
+    response = requests.post(
+        f"{host}/async-post-request", params=params, json=payload
+    )
     return response.json()
 
 
