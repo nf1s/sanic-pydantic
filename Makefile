@@ -20,3 +20,6 @@ run-docs:
 
 run-%:
 	pipenv run python example_$*.py
+
+shell:
+	pipenv run ipython
