@@ -18,7 +18,6 @@ class BodyModel(BaseModel):
 @app.route("/get-request", methods=["GET"])
 @webargs(query=QueryModel)
 def example_get_endpoint(request, **kwargs):
-    print(kwargs)
     response = json(kwargs)
     return response
 

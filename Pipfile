@@ -11,6 +11,8 @@ ipdb = "*"
 black = "*"
 pygments = "*"
 requests = "*"
+pytest = "*"
+coverage = "*"
 
 [packages]
 twine = "*"
@@ -23,3 +25,6 @@ jeepney = ">=0.4.2"
 
 [requires]
 python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
