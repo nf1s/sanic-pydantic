@@ -59,6 +59,7 @@ jobs:
     working_directory: ~/sanic_pydantic
     docker:
       - image: circleci/python:3.7.5
+    context: pypi 
     steps:
       - build
       - deploy
