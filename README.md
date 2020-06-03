@@ -67,7 +67,7 @@ async def async_example_get_endpoint(request, **kwargs):
 async def async_example_post_endpoint(request, **kwargs):
     prit(kwargs)
     response = json(kwargs)
-    return responsen
+    return response
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
