@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.1">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
     
     
       
@@ -19,9 +19,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.71dfd922.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a2408e81.min.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/palette.616af814.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
       
       
         
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#full-example" class="md-skip">
+        <a href="#examples" class="md-skip">
           Skip to content
         </a>
       
@@ -191,9 +191,42 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Example
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
     <a href="./" title="Example" class="md-nav__link md-nav__link--active">
       Example
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#async-webargs" class="md-nav__link">
+    Async webargs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -215,6 +248,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#async-webargs" class="md-nav__link">
+    Async webargs
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -229,7 +279,7 @@
                   
                 
                 
-                <h1 id="full-example">Full Example</h1>
+                <h1 id="examples">Examples</h1>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sanic_pydantic</span> <span class="kn">import</span> <span class="n">webargs</span><span class="p">,</span> <span class="n">async_webargs</span>
 
 <span class="kn">from</span> <span class="nn">sanic</span> <span class="kn">import</span> <span class="n">Sanic</span>
@@ -260,9 +310,11 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/async-get-request&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<h2 id="async-webargs">Async webargs</h2>
+<div class="codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/async-get-request&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
 <span class="nd">@async_webargs</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">QueryModel</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">async_example_get_endpoint</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
