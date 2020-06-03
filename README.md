@@ -1,5 +1,8 @@
 # Sanic Pyndatic
 
+[![CircleCI](https://circleci.com/gh/ahmednafies/sanic-pydantic.svg?style=shield)](https://circleci.com/gh/ahmednafies/sanic-pydantic) [![codecov](https://codecov.io/gh/ahmednafies/sanic-pydantic/branch/master/graph/badge.svg)](https://codecov.io/gh/ahmednafies/sanic-pydantic) ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/ahmednafies/sanic-pydantic) [![Downloads](https://pepy.tech/badge/sanic-pydantic)](https://pepy.tech/project/sanic-pydantic) ![license](https://img.shields.io/badge/license-MIT-green)
+
+## Description
 A library for parsing and validating http requests for sanic web-framework using pydantic library 
 
 Full documentation [here](https://ahmednafies.github.io/sanic_pydantic/)
