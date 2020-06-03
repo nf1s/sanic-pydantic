@@ -1,4 +1,4 @@
-# Full Example
+# Examples
 
 ```python
 from sanic_pydantic import webargs, async_webargs
@@ -31,8 +31,11 @@ def example_post_endpoint(request, **kwargs):
     print(kwargs)
     response = json(kwargs)
     return response
+```
 
+## Async webargs
 
+```python
 @app.route("/async-get-request", methods=["GET"])
 @async_webargs(query=QueryModel)
 async def async_example_get_endpoint(request, **kwargs):

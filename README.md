@@ -1,5 +1,8 @@
 # Sanic Pyndatic
 
+[![CircleCI](https://circleci.com/gh/ahmednafies/sanic-pydantic.svg?style=shield)](https://circleci.com/gh/ahmednafies/sanic-pydantic) [![codecov](https://codecov.io/gh/ahmednafies/sanic-pydantic/branch/master/graph/badge.svg)](https://codecov.io/gh/ahmednafies/sanic-pydantic) ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/ahmednafies/sanic-pydantic) [![Downloads](https://pepy.tech/badge/sanic-pydantic)](https://pepy.tech/project/sanic-pydantic) ![license](https://img.shields.io/badge/license-MIT-green)
+
+## Description
 A library for parsing and validating http requests for sanic web-framework using pydantic library 
 
 Full documentation [here](https://ahmednafies.github.io/sanic_pydantic/)
@@ -67,7 +70,7 @@ async def async_example_get_endpoint(request, **kwargs):
 async def async_example_post_endpoint(request, **kwargs):
     prit(kwargs)
     response = json(kwargs)
-    return responsen
+    return response
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)
