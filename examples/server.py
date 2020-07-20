@@ -1,4 +1,4 @@
-from sanic_pydantic import async_webargs, webargs
+from sanic_pydantic import webargs
 
 from sanic import Sanic
 from sanic.response import json
@@ -31,7 +31,7 @@ def example_post_endpoint(request, **kwargs):
 
 
 @app.route("/async-get-request", methods=["GET"])
-@async_webargs(query=QueryModel)
+@webargs(query=QueryModel)
 async def async_example_get_endpoint(request, **kwargs):
     print(kwargs)
     response = json(kwargs)
@@ -39,7 +39,7 @@ async def async_example_get_endpoint(request, **kwargs):
 
 
 @app.route("/async-post-request", methods=["POST"])
-@async_webargs(query=QueryModel, body=BodyModel)
+@webargs(query=QueryModel, body=BodyModel)
 async def async_example_post_endpoint(request, **kwargs):
     print(kwargs)
     response = json(kwargs)
