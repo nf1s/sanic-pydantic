@@ -315,7 +315,7 @@
 
 <h2 id="async-webargs">Async webargs</h2>
 <div class="codehilite"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/async-get-request&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
-<span class="nd">@async_webargs</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">QueryModel</span><span class="p">)</span>
+<span class="nd">@webargs</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">QueryModel</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">async_example_get_endpoint</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
@@ -323,9 +323,9 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/async-post-request&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
-<span class="nd">@async_webargs</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">QueryModel</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">BodyModel</span><span class="p">)</span>
+<span class="nd">@webargs</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">QueryModel</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">BodyModel</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">async_example_post_endpoint</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">prit</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">responsen</span>
 
