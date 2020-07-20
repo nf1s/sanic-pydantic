@@ -30,7 +30,7 @@ def validate(request, query, body):
     if body and request.method not in BODY_METHODS:
         raise InvalidOperation(
             f"Http method '{request.method}' does not contain a payload,"
-            "yet a Pyndatic model for body was suppied"
+            "yet a `Pyndatic` model for body was supplied"
         )
 
     if body:
@@ -51,7 +51,7 @@ def webargs(query=None, body=None):
             try:
                 result = validate(request, query, body)
             except ValidationError as e:
-                return json(e.errors())
+                return json(e.errors(), status=422)
             kwargs.update(result)
             if not asyncio.iscoroutinefunction(f):
                 response = f(request, *args, **kwargs)

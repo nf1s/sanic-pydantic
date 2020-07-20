@@ -1,9 +1,10 @@
 [run]
 branch = True
 omit =
-    example.py
+    examples/client.py
     setup.py
-    cli.py
+    .venv/*
+    tests/*
     
 source = .
 
