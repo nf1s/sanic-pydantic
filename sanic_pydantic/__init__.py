@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from functools import wraps
-
+import asyncio
 from pydantic import ValidationError
 from sanic.response import json
 
 __author__ = "Ahmed Nafies Okasha Mohamed <ahmed.nafies@gmail.com>"
 __copyright__ = "Copyright 2020, Ahmed Nafies Okasha Mohamed"
 __license__ = "MIT"
-__version__ = "0.1.5"
+__version__ = "1.0.0"
 
 
 BODY_METHODS = ["POST", "PUT", "PATCH"]
@@ -44,23 +44,6 @@ def validate(request, query, body):
     return dict(payload=payload, query=query_params)
 
 
-def async_webargs(query=None, body=None):
-    def decorator(f):
-        @wraps(f)
-        async def decorated_function(request, *args, **kwargs):
-            try:
-                result = validate(request, query, body)
-            except ValidationError as e:
-                return json(e.errors())
-            kwargs.update(result)
-            response = await f(request, *args, **kwargs)
-            return response
-
-        return decorated_function
-
-    return decorator
-
-
 def webargs(query=None, body=None):
     def decorator(f):
         @wraps(f)
@@ -70,8 +53,16 @@ def webargs(query=None, body=None):
             except ValidationError as e:
                 return json(e.errors())
             kwargs.update(result)
-            response = f(request, *args, **kwargs)
-            return response
+            if not asyncio.iscoroutinefunction(f):
+                response = f(request, *args, **kwargs)
+                return response
+            else:
+
+                async def temp_():
+                    response = await f(request, *args, **kwargs)
+                    return response
+
+                return temp_()
 
         return decorated_function
 
