@@ -1,5 +1,7 @@
 # Examples
 
+## Sync webargs
+
 ```python
 from sanic_pydantic import webargs, async_webargs
 
@@ -10,12 +12,22 @@ from pydantic import BaseModel
 app = Sanic("new app")
 
 
+class PathModel(BaseModel):
+    id: int
+
+
 class QueryModel(BaseModel):
     name: str
 
 
 class BodyModel(BaseModel):
     age: int
+
+@app.route("/get/<id:int>", methods=["GET"])
+@webargs(path=PathModel)
+def example_get_endpoint_params(request, id):
+    response = json({"id":id})
+    return response
 
 @app.route("/get-request", methods=["GET"])
 @webargs(query=QueryModel)
