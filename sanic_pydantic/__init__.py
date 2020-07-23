@@ -22,10 +22,11 @@ class InvalidOperation(Error):
     pass
 
 
-def validate(request, query, body):
+def validate(request, query, body, path):
 
     payload = None
     query_params = None
+    path_params = None
 
     if body and request.method not in BODY_METHODS:
         raise InvalidOperation(
@@ -41,15 +42,22 @@ def validate(request, query, body):
         params = {k: v[0] for k, v in params.items()}
         query_params = query(**params).dict()
 
-    return dict(payload=payload, query=query_params)
+    if path:
+        path_params = path(**request.match_info).dict()
+
+    return dict(
+        payload=payload,
+        query=query_params,
+        **path_params if path_params else {},
+    )
 
 
-def webargs(query=None, body=None):
+def webargs(query=None, body=None, path=None):
     def decorator(f):
         @wraps(f)
         def decorated_function(request, *args, **kwargs):
             try:
-                result = validate(request, query, body)
+                result = validate(request, query, body, path)
             except ValidationError as e:
                 return json(e.errors(), status=422)
             kwargs.update(result)

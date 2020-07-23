@@ -7,6 +7,10 @@ from pydantic import BaseModel
 app = Sanic("new app")
 
 
+class PathModel(BaseModel):
+    id: int
+
+
 class QueryModel(BaseModel):
     name: str
 
@@ -18,6 +22,13 @@ class BodyModel(BaseModel):
 @app.route("/get-request", methods=["GET"])
 @webargs(query=QueryModel)
 def example_get_endpoint(request, **kwargs):
+    response = json(kwargs)
+    return response
+
+
+@app.route("/get/<id>", methods=["GET"])
+@webargs(path=PathModel)
+def example_get_endpoint_params(request, **kwargs):
     response = json(kwargs)
     return response
 

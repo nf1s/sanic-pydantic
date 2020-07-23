@@ -10,6 +10,13 @@ def test_sanic_webargs_query():
     assert response.json == expected_response
 
 
+def test_sanic_webargs_path():
+    request, response = app.test_client.get("/get/1")
+    expected_response = dict(payload=None, query=None, id=1)
+    assert response.status == 200
+    assert response.json == expected_response
+
+
 def test_sanic_webargs_payload():
     data = dict(age=29)
     params = dict(name="ahmed")
