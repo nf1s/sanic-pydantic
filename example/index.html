@@ -11,7 +11,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
     
     
       
@@ -19,7 +19,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.a2408e81.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.fe0cca5b.min.css">
       
         <link rel="stylesheet" href="../assets/stylesheets/palette.a46bcfb3.min.css">
       
@@ -51,6 +51,7 @@
     
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="violet" data-md-color-accent="">
   
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -218,6 +219,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sync-webargs" class="md-nav__link">
+    Sync webargs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#async-webargs" class="md-nav__link">
     Async webargs
   </a>
@@ -257,6 +265,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sync-webargs" class="md-nav__link">
+    Sync webargs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#async-webargs" class="md-nav__link">
     Async webargs
   </a>
@@ -280,6 +295,7 @@
                 
                 
                 <h1 id="examples">Examples</h1>
+<h2 id="sync-webargs">Sync webargs</h2>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sanic_pydantic</span> <span class="kn">import</span> <span class="n">webargs</span><span class="p">,</span> <span class="n">async_webargs</span>
 
 <span class="kn">from</span> <span class="nn">sanic</span> <span class="kn">import</span> <span class="n">Sanic</span>
@@ -289,12 +305,22 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">Sanic</span><span class="p">(</span><span class="s2">&quot;new app&quot;</span><span class="p">)</span>
 
 
+<span class="k">class</span> <span class="nc">PathModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+
+
 <span class="k">class</span> <span class="nc">QueryModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
 
 
 <span class="k">class</span> <span class="nc">BodyModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/get/&lt;id:int&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="nd">@webargs</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">PathModel</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">example_get_endpoint_params</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">json</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="nb">id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">response</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/get-request&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
 <span class="nd">@webargs</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">QueryModel</span><span class="p">)</span>
@@ -385,14 +411,14 @@
     </div>
     
       <script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-      <script src="../assets/javascripts/bundle.5f27aba8.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.27c6a5e6.min.js"
+            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
