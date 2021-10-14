@@ -8,7 +8,7 @@ Full code on github [here](https://github.com/ahmednafies/sanic-pydantic)
 
 ## Requirements
 
-	python >= 3.7
+	python >= 3.8
 
 ## How to install
 
