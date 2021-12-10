@@ -5,10 +5,10 @@ from functools import wraps
 from pydantic import ValidationError
 from sanic.response import json
 
-__author__ = "Ahmed Nafies Okasha Mohamed <ahmed.nafies@gmail.com>"
-__copyright__ = "Copyright 2020, Ahmed Nafies Okasha Mohamed"
+__author__ = "Ahmed Nafies <ahmed.nafies@gmail.com>"
+__copyright__ = "Copyright 2020, Ahmed Nafies"
 __license__ = "MIT"
-__version__ = "1.2.1"
+__version__ = "1.2.3"
 
 
 BODY_METHODS = ["POST", "PUT", "PATCH"]

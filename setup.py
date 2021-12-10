@@ -17,7 +17,7 @@ setup(
     description="Sanic Pydatic",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://ahmednafies.github.io/sanic-pydantic/",
+    url="https://nf1s.github.io/sanic-pydantic/",
     author="Ahmed Nafies",
     author_email="ahmed.nafies@gmail.com",
     license="MIT",
@@ -36,8 +36,8 @@ setup(
         "docs": ["mkdocs", "mkdocs-material"],
     },
     project_urls={
-        "Documentation": "https://ahmednafies.github.io/sanic-pydantic/",
-        "Source": "https://github.com/ahmednafies/sanic-pydantic",
+        "Documentation": "https://nf1s.github.io/sanic-pydantic/",
+        "Source": "https://github.com/nf1s/sanic-pydantic",
     },
     classifiers=[
         "Intended Audience :: Developers",

@@ -17,4 +17,5 @@ dist/
 .mypy_cache
 .venv
 .vim
+.undodir
 site
