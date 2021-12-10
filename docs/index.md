@@ -1,10 +1,10 @@
 # Getting Started
-[![CircleCI](https://circleci.com/gh/ahmednafies/sanic-pydantic.svg?style=shield)](https://circleci.com/gh/ahmednafies/sanic-pydantic) ![CircleCI](https://img.shields.io/circleci/build/github/ahmednafies/sanic-pydantic/master) [![codecov](https://codecov.io/gh/ahmednafies/sanic-pydantic/branch/master/graph/badge.svg)](https://codecov.io/gh/ahmednafies/sanic-pydantic) ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/ahmednafies/sanic-pydantic) ![GitHub top language](https://img.shields.io/github/languages/top/ahmednafies/sanic-pydantic) ![PyPI](https://img.shields.io/pypi/v/sanic-pydantic) [![Downloads](https://pepy.tech/badge/sanic-pydantic)](https://pepy.tech/project/sanic-pydantic) ![license](https://img.shields.io/badge/license-MIT-green)
- ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/ahmednafies/sanic-pydantic) ![GitHub issues](https://img.shields.io/github/issues/ahmednafies/sanic-pydantic) ![GitHub closed issues](https://img.shields.io/github/issues-closed/ahmednafies/sanic-pydantic)
+[![CircleCI](https://circleci.com/gh/nf1s/sanic-pydantic.svg?style=shield)](https://circleci.com/gh/nf1s/sanic-pydantic) ![CircleCI](https://img.shields.io/circleci/build/github/nf1s/sanic-pydantic/master) [![codecov](https://codecov.io/gh/nf1s/sanic-pydantic/branch/master/graph/badge.svg)](https://codecov.io/gh/nf1s/sanic-pydantic) ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/nf1s/sanic-pydantic) ![GitHub top language](https://img.shields.io/github/languages/top/nf1s/sanic-pydantic) ![PyPI](https://img.shields.io/pypi/v/sanic-pydantic) [![Downloads](https://pepy.tech/badge/sanic-pydantic)](https://pepy.tech/project/sanic-pydantic) ![license](https://img.shields.io/badge/license-MIT-green)
+ ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/nf1s/sanic-pydantic) ![GitHub issues](https://img.shields.io/github/issues/nf1s/sanic-pydantic) ![GitHub closed issues](https://img.shields.io/github/issues-closed/nf1s/sanic-pydantic)
 
 A library for parsing and validating http requests for sanic web-framework using pydantic library 
 
-Full code on github [here](https://github.com/ahmednafies/sanic-pydantic)
+Full code on github [here](https://github.com/nf1s/sanic-pydantic)
 
 ## Requirements
 
