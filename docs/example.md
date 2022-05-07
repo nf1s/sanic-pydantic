@@ -3,7 +3,7 @@
 ## Sync webargs
 
 ```python
-from sanic_pydantic import webargs, async_webargs
+from sanic_pydantic import webargs
 
 from sanic import Sanic
 from sanic.response import json
