@@ -1,8 +1,8 @@
-from sanic_pydantic import webargs
-
+from pydantic import BaseModel, Field
 from sanic import Sanic
 from sanic.response import json
-from pydantic import BaseModel
+
+from sanic_pydantic import webargs
 
 app = Sanic("new app")
 
@@ -19,8 +19,12 @@ class BodyModel(BaseModel):
     age: int
 
 
+class HeadersModel(BaseModel):
+    api_key: str = Field(alias="x-api-key")
+
+
 @app.route("/get-request", methods=["GET"])
-@webargs(query=QueryModel)
+@webargs(query=QueryModel, headers=HeadersModel)
 def example_get_endpoint(request, **kwargs):
     response = json(kwargs)
     return response
