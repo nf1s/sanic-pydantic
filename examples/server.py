@@ -4,7 +4,7 @@ from sanic.response import json
 
 from sanic_pydantic import webargs
 
-app = Sanic("new app")
+app = Sanic("test")
 
 
 class PathModel(BaseModel):
