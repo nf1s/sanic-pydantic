@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-import asyncio
 from functools import wraps
+from inspect import isawaitable
 
 from pydantic import ValidationError
 from sanic.response import json
@@ -61,23 +61,17 @@ def validate(request, query, body, path, headers):
 def webargs(query=None, body=None, path=None, headers=None):
     def decorator(f):
         @wraps(f)
-        def decorated_function(request, *args, **kwargs):
+        async def decorated_function(request, *args, **kwargs):
             try:
                 result = validate(request, query, body, path, headers)
             except ValidationError as e:
                 return json(e.errors(), status=422)
             kwargs.update(result)
-            if not asyncio.iscoroutinefunction(f):
-                response = f(request, *args, **kwargs)
-                return response
-            else:
 
-                async def temp_():
-                    response = await f(request, *args, **kwargs)
-                    return response
+            response = f(request, *args, **kwargs)
+            if isawaitable(response):
+                response = await response
 
-                return temp_()
-
+            return response
         return decorated_function
-
     return decorator
