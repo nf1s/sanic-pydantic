@@ -13,8 +13,8 @@ commands:
           #key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
           command: |
-            sudo pip install pipenv setuptools
-            pipenv install --system --dev --pre
+            sudo pip install pipenv
+            pipenv install --dev --pre
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
