@@ -36,6 +36,10 @@ class BodyModel(BaseModel):
     age: int
 
 
+class QueryModel(BaseModel):
+    name: str
+
+
 @app.route("/post-request", methods=["POST"])
 @webargs(query=QueryModel, body=BodyModel)
 def example_post_endpoint(request, **kwargs):

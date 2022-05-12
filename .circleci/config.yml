@@ -14,7 +14,7 @@ commands:
       - run:
           command: |
             sudo pip install pipenv
-            pipenv install --system --dev --pre
+            pipenv install --dev --pre
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
@@ -74,4 +74,4 @@ workflows:
             - test
           filters:
             branches:
-              only: master 
+              only: master

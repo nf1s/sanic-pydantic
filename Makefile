@@ -15,11 +15,11 @@ install:
 deploy-docs:
 	pipenv run mkdocs gh-deploy
 
-run-docs:
+servce-docs:
 	pipenv run mkdocs serve
 
 run-%:
-	pipenv run python example_$*.py
+	pipenv run python examples/$*.py
 
 shell:
 	pipenv run ipython

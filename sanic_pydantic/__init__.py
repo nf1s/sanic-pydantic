@@ -8,7 +8,7 @@ from sanic.response import json
 __author__ = "Ahmed Nafies <ahmed.nafies@gmail.com>"
 __copyright__ = "Copyright 2020, Ahmed Nafies"
 __license__ = "MIT"
-__version__ = "1.2.4"
+__version__ = "1.3.0"
 
 
 BODY_METHODS = ["POST", "PUT", "PATCH"]
@@ -23,11 +23,12 @@ class InvalidOperation(Error):
     pass
 
 
-def validate(request, query, body, path):
+def validate(request, query, body, path, headers):
 
     payload = None
     query_params = None
     path_params = None
+    header_params = None
 
     if body and request.method not in BODY_METHODS:
         raise InvalidOperation(
@@ -46,19 +47,23 @@ def validate(request, query, body, path):
     if path:
         path_params = path(**request.match_info).dict()
 
+    if headers:
+        header_params = headers(**request.headers).dict()
+
     return dict(
         payload=payload,
         query=query_params,
+        headers=header_params,
         **path_params if path_params else {},
     )
 
 
-def webargs(query=None, body=None, path=None):
+def webargs(query=None, body=None, path=None, headers=None):
     def decorator(f):
         @wraps(f)
         def decorated_function(request, *args, **kwargs):
             try:
-                result = validate(request, query, body, path)
+                result = validate(request, query, body, path, headers)
             except ValidationError as e:
                 return json(e.errors(), status=422)
             kwargs.update(result)

@@ -45,9 +45,14 @@ class QueryModel(BaseModel):
 class BodyModel(BaseModel):
     age: int
 
+
+class HeadersModel(BaseModel):
+    api_key: str = Field(alias="x-api-key")
+
+
 @app.route("/get/<id:int>", methods=["GET"])
-@webargs(path=PathModel)
-def example_get_endpoint_params(request, id):
+@webargs(path=PathModel, headers=HeadersModel)
+def example_get_endpoint_params(request, id, **kwargs):
     response = json({"id":id})
     return response
 
