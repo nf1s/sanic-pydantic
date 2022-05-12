@@ -18,8 +18,8 @@ deploy-docs:
 servce-docs:
 	pipenv run mkdocs serve
 
-run pattern:
-	pipenv run python examples/{{pattern}}.py
+run-%:
+	pipenv run python examples/$*.py
 
 shell:
 	pipenv run ipython
